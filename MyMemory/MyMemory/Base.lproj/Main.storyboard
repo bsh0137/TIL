@@ -164,11 +164,11 @@
         <scene sceneID="WKd-yr-1HI">
             <objects>
                 <viewController id="nBn-EO-rLu" customClass="MemoFormVC" customModule="MyMemory" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="H4Z-bv-6wr">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="H4Z-bv-6wr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="WZr-Sk-hx6">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="WZr-Sk-hx6">
                                 <rect key="frame" x="16" y="64" width="382" height="657"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
