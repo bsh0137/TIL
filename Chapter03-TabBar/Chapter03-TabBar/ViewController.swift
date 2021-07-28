@@ -38,6 +38,7 @@ class ViewController: UIViewController {
         
         UIView.animate(withDuration: TimeInterval(2)){
             // alpha 값이 0이면 1로, 1이면 0으로 밖어 준다.
+            
             // 호출될 때마다 점점 투명해졌다가 점점 진해질 것이다.
             tabBar?.alpha = ( tabBar?.alpha == 0 ? 1 : 0)
         }
