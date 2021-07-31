@@ -23,6 +23,7 @@
 		DE6CA47826AE850A009F20DB /* fountainpen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DE6CA47726AE850A009F20DB /* fountainpen@2x.png */; };
 		DE93727D26B24DFB00C3B37E /* CSLogButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE93727C26B24DFB00C3B37E /* CSLogButton.swift */; };
 		DE93728026B24FB200C3B37E /* button-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = DE93727F26B24FB200C3B37E /* button-bg.png */; };
+		DE9EF0F526B525A100FE3B2D /* UserInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9EF0F426B525A100FE3B2D /* UserInfoManager.swift */; };
 		DEE80B7726B391E2005D5362 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE80B7626B391E2005D5362 /* SWRevealViewController.m */; };
 		DEE80B8026B3926F005D5362 /* icon01.png in Resources */ = {isa = PBXBuildFile; fileRef = DEE80B7826B3926F005D5362 /* icon01.png */; };
 		DEE80B8126B3926F005D5362 /* icon06.png in Resources */ = {isa = PBXBuildFile; fileRef = DEE80B7926B3926F005D5362 /* icon06.png */; };
@@ -56,6 +57,7 @@
 		DE6CA47726AE850A009F20DB /* fountainpen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fountainpen@2x.png"; sourceTree = "<group>"; };
 		DE93727C26B24DFB00C3B37E /* CSLogButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSLogButton.swift; sourceTree = "<group>"; };
 		DE93727F26B24FB200C3B37E /* button-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button-bg.png"; path = "../../swift_practice/MyMemory-Chapter03/Resources/button-bg.png"; sourceTree = "<group>"; };
+		DE9EF0F426B525A100FE3B2D /* UserInfoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoManager.swift; sourceTree = "<group>"; };
 		DEE80B7426B391E1005D5362 /* MyMemory-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyMemory-Bridging-Header.h"; sourceTree = "<group>"; };
 		DEE80B7526B391E2005D5362 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		DEE80B7626B391E2005D5362 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 		DE6CA44826AD8C9A009F20DB = {
 			isa = PBXGroup;
 			children = (
+				DE9EF0F426B525A100FE3B2D /* UserInfoManager.swift */,
 				DE93727E26B24F3900C3B37E /* Resources */,
 				DE6CA45326AD8C9A009F20DB /* MyMemory */,
 				DE6CA45226AD8C9A009F20DB /* Products */,
@@ -240,6 +243,7 @@
 				DEE80B8B26B3CA04005D5362 /* ProfileVC.swift in Sources */,
 				DEE80B7726B391E2005D5362 /* SWRevealViewController.m in Sources */,
 				DE6CA45726AD8C9A009F20DB /* SceneDelegate.swift in Sources */,
+				DE9EF0F526B525A100FE3B2D /* UserInfoManager.swift in Sources */,
 				DE6CA47426AE4162009F20DB /* MemoCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
