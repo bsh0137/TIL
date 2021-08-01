@@ -53,6 +53,12 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource, U
         
         // 계정관리 화면에서 로그인/로그아웃 버튼 표현
         self.drawBtn()
+        
+        // 뷰 객체에 탭 제스처를 등록하고, 이를 profile(_:)과 연결함
+        let tap = UITapGestureRecognizer(target: self, action: #selector(profile(_:)))
+        self.profileImage.addGestureRecognizer(tap)
+        self.profileImage.isUserInteractionEnabled = true
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

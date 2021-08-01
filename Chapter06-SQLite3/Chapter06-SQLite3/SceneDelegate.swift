@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  MyMemory
+//  Chapter06-SQLite3
 //
-//  Created by 백성현 on 2021/07/25.
+//  Created by 백성현 on 2021/08/01.
 //
 
 import UIKit
@@ -17,12 +17,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
-        
-        // 페이지 인디케이터 설정을 위한 외형 템플릿 구문
-        let pageControl = UIPageControl.appearance()
-        pageControl.pageIndicatorTintColor = .lightGray
-        pageControl.currentPageIndicatorTintColor = .black
-        pageControl.backgroundColor = .white
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -51,9 +45,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
-
-        // Save changes in the application's managed object context when the application transitions to the background.
-        (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
 
 
