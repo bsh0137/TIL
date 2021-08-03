@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     
     func getDBPath() -> String {
         // 앱 내 문서 디렉토리 경로에서 SQLite DB 파일을 찾는다.
-        let fileMgr = FileManager()
+        let fileMgr = FileManager() 
         let docPathURL = fileMgr.urls(for: .documentDirectory, in: .userDomainMask).first!
         let dbPath = docPathURL.appendingPathComponent("db.sqlite").path
         
