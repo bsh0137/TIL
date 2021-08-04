@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DE49CD2526BA7EE800735C1E /* PickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE49CD2426BA7EE800735C1E /* PickerController.swift */; };
+		DE49CD2726BAA45E00735C1E /* DepartmentInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE49CD2626BAA45E00735C1E /* DepartmentInfoVC.swift */; };
 		DEECE5C926B95A5000CB0189 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEECE5C826B95A5000CB0189 /* AppDelegate.swift */; };
 		DEECE5CB26B95A5000CB0189 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEECE5CA26B95A5000CB0189 /* SceneDelegate.swift */; };
 		DEECE5CD26B95A5000CB0189 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEECE5CC26B95A5000CB0189 /* ViewController.swift */; };
@@ -23,9 +25,12 @@
 		DEECE5F426B95D4100CB0189 /* EmployeeListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEECE5F326B95D4100CB0189 /* EmployeeListVC.swift */; };
 		DEECE5F626B964B300CB0189 /* hr.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = DEECE5F526B964B300CB0189 /* hr.sqlite */; };
 		DEECE5F826B965A600CB0189 /* DepartmentDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEECE5F726B965A600CB0189 /* DepartmentDAO.swift */; };
+		DEECE5FA26BA108F00CB0189 /* EmployeeDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEECE5F926BA108F00CB0189 /* EmployeeDAO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DE49CD2426BA7EE800735C1E /* PickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerController.swift; sourceTree = "<group>"; };
+		DE49CD2626BAA45E00735C1E /* DepartmentInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentInfoVC.swift; sourceTree = "<group>"; };
 		DEECE5C526B95A5000CB0189 /* Chapter06-HR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chapter06-HR.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEECE5C826B95A5000CB0189 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DEECE5CA26B95A5000CB0189 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,8 +54,9 @@
 		DEECE5EA26B95AB100CB0189 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
 		DEECE5F126B95D2200CB0189 /* DepartmentListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentListVC.swift; sourceTree = "<group>"; };
 		DEECE5F326B95D4100CB0189 /* EmployeeListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeListVC.swift; sourceTree = "<group>"; };
-		DEECE5F526B964B300CB0189 /* hr.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = hr.sqlite; path = ../../hr.sqlite; sourceTree = "<group>"; };
+		DEECE5F526B964B300CB0189 /* hr.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = hr.sqlite; sourceTree = "<group>"; };
 		DEECE5F726B965A600CB0189 /* DepartmentDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentDAO.swift; sourceTree = "<group>"; };
+		DEECE5F926BA108F00CB0189 /* EmployeeDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDAO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +74,7 @@
 		DEECE5BC26B95A5000CB0189 = {
 			isa = PBXGroup;
 			children = (
+				DEECE5F526B964B300CB0189 /* hr.sqlite */,
 				DEECE5F026B95AB900CB0189 /* fmdb */,
 				DEECE5C726B95A5000CB0189 /* Chapter06-HR */,
 				DEECE5C626B95A5000CB0189 /* Products */,
@@ -87,14 +94,16 @@
 		DEECE5C726B95A5000CB0189 /* Chapter06-HR */ = {
 			isa = PBXGroup;
 			children = (
-				DEECE5F526B964B300CB0189 /* hr.sqlite */,
 				DEECE5F726B965A600CB0189 /* DepartmentDAO.swift */,
+				DEECE5F926BA108F00CB0189 /* EmployeeDAO.swift */,
 				DEECE5C826B95A5000CB0189 /* AppDelegate.swift */,
 				DEECE5CA26B95A5000CB0189 /* SceneDelegate.swift */,
 				DEECE5CC26B95A5000CB0189 /* ViewController.swift */,
 				DEECE5CE26B95A5000CB0189 /* Main.storyboard */,
 				DEECE5F126B95D2200CB0189 /* DepartmentListVC.swift */,
+				DE49CD2626BAA45E00735C1E /* DepartmentInfoVC.swift */,
 				DEECE5F326B95D4100CB0189 /* EmployeeListVC.swift */,
+				DE49CD2426BA7EE800735C1E /* PickerController.swift */,
 				DEECE5D126B95A5000CB0189 /* Assets.xcassets */,
 				DEECE5D326B95A5000CB0189 /* LaunchScreen.storyboard */,
 				DEECE5D626B95A5000CB0189 /* Info.plist */,
@@ -200,11 +209,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEECE5FA26BA108F00CB0189 /* EmployeeDAO.swift in Sources */,
 				DEECE5ED26B95AB100CB0189 /* FMResultSet.m in Sources */,
 				DEECE5F226B95D2200CB0189 /* DepartmentListVC.swift in Sources */,
 				DEECE5F826B965A600CB0189 /* DepartmentDAO.swift in Sources */,
+				DE49CD2726BAA45E00735C1E /* DepartmentInfoVC.swift in Sources */,
 				DEECE5F426B95D4100CB0189 /* EmployeeListVC.swift in Sources */,
 				DEECE5CD26B95A5000CB0189 /* ViewController.swift in Sources */,
+				DE49CD2526BA7EE800735C1E /* PickerController.swift in Sources */,
 				DEECE5EB26B95AB100CB0189 /* FMDatabaseQueue.m in Sources */,
 				DEECE5C926B95A5000CB0189 /* AppDelegate.swift in Sources */,
 				DEECE5EE26B95AB100CB0189 /* FMDatabasePool.m in Sources */,
