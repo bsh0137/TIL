@@ -2,7 +2,7 @@ import UIKit
 import CoreData
 
 class LogVC: UITableViewController {
-    
+
 }
 
 public enum LogType: Int16 {
