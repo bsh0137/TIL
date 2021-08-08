@@ -7,7 +7,7 @@ class MemoDAO {
         return appDelegate.persistentContainer.viewContext
     }()
     
-    func fetch() -> [MemoData] {
+    func fetch(keyword text: String? = nil) -> [MemoData] {
         var memolist = [MemoData]()
         // 1. 요청 객체 생성
         let fetchRequest: NSFetchRequest<MemoMO> = MemoMO.fetchRequest()
@@ -16,6 +16,10 @@ class MemoDAO {
         let regdateDesc = NSSortDescriptor(key: "regdate", ascending: false)
         fetchRequest.sortDescriptors = [regdateDesc]
         
+        // 1-2. 검색 키워드가 있을 경우 검색 조건 추가
+        if let t = text, t.isEmpty == false {
+            fetchRequest.predicate = NSPredicate(format: "contents CONTAINS[c] %@", t)
+        }
         do {
             let resultset = try self.context.fetch(fetchRequest)
             
@@ -63,6 +67,24 @@ class MemoDAO {
             NSLog("An error has occured: %s", e.localizedDescription)
         }
     }
+    
+    //삭제할 객체를 찾아, 컨텍스트에서 삭제한다.
+    func delete(_ objectID: NSManagedObjectID) -> Bool {
+    // 삭제할 객체를 찾아, 컨텍스트에서 삭제한다.
+        let object = self.context.object(with: objectID)
+        self.context.delete(object)
+        
+        do {
+            // 삭제된 내역을 영구저장소에 반영한다.
+            try self.context.save()
+            return true
+        } catch let e as NSError {
+            NSLog("An error has occured : %s", e.localizedDescription)
+            return false
+        }
+    }
+    
+    
 }
 
 class MemoData {

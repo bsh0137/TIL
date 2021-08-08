@@ -1,9 +1,12 @@
 import UIKit
 
 class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    var isCalling = false
     let uinfo = UserInfoManager() // 개인 정보 관리 매니저
     let profileImage = UIImageView() // 프로필 사진 이미지
     let tv = UITableView() // 프로필 목록
+    
+    @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         self.navigationItem.title = "프로필"
@@ -58,7 +61,9 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource, U
         let tap = UITapGestureRecognizer(target: self, action: #selector(profile(_:)))
         self.profileImage.addGestureRecognizer(tap)
         self.profileImage.isUserInteractionEnabled = true
-        
+     
+        // 인디케이터 뷰를 화면 맨 앞으로
+        self.view.bringSubviewToFront(self.indicatorView)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -91,6 +96,12 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource, U
     }
     
     @objc func doLogin(_ sender: Any) {
+        if self.isCalling == true {
+            self.alert("응답을 기다리는 중입니다. \n잠시만 기다려 주세요.")
+            return
+        } else {
+            self.isCalling = true
+        }
         let loginAlert = UIAlertController(title: "LOGIN", message: nil, preferredStyle: .alert)
         
         // 알림창에 들어갈 입력폼 추가
@@ -102,26 +113,30 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource, U
             tf.isSecureTextEntry = true
             
             // 알림창 버튼 추가
-            loginAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            loginAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel) {(_) in
+                self.isCalling = false
+            })
             loginAlert.addAction(UIAlertAction(title: "Login", style: .destructive) { (_) in
+                // 인디케이터 실행
+                self.indicatorView.startAnimating()
                 let account = loginAlert.textFields?[0].text ?? "" // 첫 번째 필드 : 계정
-                let passwd = loginAlert.textFields?[1].text ?? "" // 두 번째 필드: 비밀번호
+                let passwd = loginAlert.textFields?[1].text ?? "" // 두 번째 필드 : 비밀번호
                 
-                if self.uinfo.login(account: account, passwd: passwd) {
-                    self.tv.reloadData()
-                    self.profileImage.image = self.uinfo.profile // 이미지 프로필을 갱신한다.
-                    self.drawBtn() // 로그인 상태에 따라 적절히 로그인/로그아웃 버튼을 출력.
-                } else {
-                    print("test")
-                    let msg = "로그인에 실패하였습니다."
-                    print("test1")
-                    let alert = UIAlertController(title: nil, message: msg, preferredStyle: .alert)
-                    print("test2")
-                    alert.addAction(UIAlertAction(title: "확인", style: .cancel))
-                    print("test3")
-                    self.present(alert, animated: false)
-                    print("test4")
-                }
+                self.uinfo.login(account: account, passwd: passwd, success: {
+                    // 인디케이터 종료
+                    self.indicatorView.stopAnimating()
+                    self.isCalling = false
+                    
+                    self.tv.reloadData() // 테이블 뷰 갱신
+                    self.profileImage.image = self.uinfo.profile // 이미지 프로필 갱신
+                    self.drawBtn()
+                }, fail: { msg in
+                    // 인디케이터 종료
+                    self.indicatorView.stopAnimating()
+                    self.isCalling = false
+                    
+                    self.alert(msg)
+                })
             })
             self.present(loginAlert, animated: false)
         }
@@ -233,5 +248,10 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource, U
         
         // 이 구문을 누락하면 이미지 피커 컨트롤러 창은 닫히지 않음.
         picker.dismiss(animated: false)
+    }
+    
+    @IBAction func backProfileVC(_ segue: UIStoryboardSegue) {
+        // 단지 프로필 화면으로 되돌아오기 위한 표식 역할만 할 뿐이므로
+        // 아무 내용도 작성하지 않음.
     }
 }

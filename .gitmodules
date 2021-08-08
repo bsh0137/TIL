@@ -1,0 +1,6 @@
+[submodule "Chapter08-APITest/Alamofire"]
+	path = Chapter08-APITest/Alamofire
+	url = https://github.com/Alamofire/Alamofire.git
+[submodule "MyMemory/Alamofire"]
+	path = MyMemory/Alamofire
+	url = https://github.com/Alamofire/Alamofire.git
