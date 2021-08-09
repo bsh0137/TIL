@@ -1,4 +1,5 @@
 import UIKit
+import Alamofire
 
 class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     var isCalling = false
@@ -64,6 +65,19 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource, U
      
         // 인디케이터 뷰를 화면 맨 앞으로
         self.view.bringSubviewToFront(self.indicatorView)
+        
+        // 키 체인 저장 여부 확인을 위한 임시코드
+        let tk = TokenUtils()
+        if let accessToken = tk.load("kr.co.rubypaper.MyMemory", account: "accessToken") {
+            print("accessToken = \(accessToken)")
+        } else {
+            print("accessToken is nil")
+        }
+        if let refreshToken = tk.load("kr.co.rubypaper.MyMemory", account: "refreshToken") {
+            print("refreshToken = \(refreshToken)")
+        } else {
+            print("refreshToken is nil")
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -148,8 +162,13 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource, U
         
         alert.addAction(UIAlertAction(title: "취소", style: .cancel))
         alert.addAction(UIAlertAction(title: "확인", style: .destructive) { (_) in
-            if self.uinfo.logout() {
-                // (로그아웃 시 처리할 내용이 여기에 들어갈 예정.)
+            // 인디케이터 실행
+            self.indicatorView.startAnimating()
+            
+            self.uinfo.logout() {
+                // Logout API 호출과 logout() 실행이 모두 끝나면 인디케이터도 중지
+                self.indicatorView.stopAnimating()
+                
                 self.tv.reloadData() // 추가) 테이블 뷰를 갱신한다.
                 self.profileImage.image = self.uinfo.profile // 추가) 이미지 프로필을 갱신한다.
                 self.drawBtn()
@@ -241,11 +260,20 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource, U
     
     // 이미지를 선택하면 이 메소드가 자동으로 호출된다.
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let img = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
-            self.uinfo.profile = img
-            self.profileImage.image = img
-        }
+        // 인디케이터 실행
+        self.indicatorView.startAnimating()
         
+        if let img = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            self.uinfo.newProfile(img, success: {
+                // 인디케이터 종료
+                self.indicatorView.stopAnimating()
+                self.profileImage.image = img
+            }, fail: { msg in
+                // 인디케이터 종료
+                self.indicatorView.stopAnimating()
+                self.alert(msg)
+            })
+        }
         // 이 구문을 누락하면 이미지 피커 컨트롤러 창은 닫히지 않음.
         picker.dismiss(animated: false)
     }
@@ -254,4 +282,5 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource, U
         // 단지 프로필 화면으로 되돌아오기 위한 표식 역할만 할 뿐이므로
         // 아무 내용도 작성하지 않음.
     }
+    
 }
