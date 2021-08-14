@@ -7,3 +7,4 @@ console.log(`c >>> ${c}`);
 var {a:newA=10, f:newF=5} = obj;
 console.log(`newA >>> ${newA}`);
 console.log(`newF >>> ${newF}`);
+// 굿굿
