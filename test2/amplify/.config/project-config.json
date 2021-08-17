@@ -1,0 +1,8 @@
+{
+  "projectName": "test2",
+  "version": "2.0",
+  "frontend": "ios",
+  "providers": [
+    "awscloudformation"
+  ]
+}

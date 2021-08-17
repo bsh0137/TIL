@@ -45,12 +45,15 @@
     const $operator = document.querySelector('#operator')
     const $result = document.querySelector('#result')
     const onClickNumber = (event) => {
-        if (operator){
-            numTwo += event.target.textContent;
-        } else{
+        if (!operator){
             numOne += event.target.textContent;
-        }
-        $result.textContent = event.target.textContent;
+            $result.value += event.target.textContent;
+            return
+        } 
+
+        if (!numTwo) { $result.value = ''; };
+        numTwo += event.target.textContent;
+        $result.value += event.target.textContent;
     }; //고차 함수 (high order function)
     document.querySelector('#num-0').addEventListener('click', onClickNumber);
     document.querySelector('#num-1').addEventListener('click', onClickNumber);
@@ -75,8 +78,39 @@
     document.querySelector('#plus').addEventListener('click', onClickOperator('+'));   
     document.querySelector('#minus').addEventListener('click', onClickOperator('-'));   
     document.querySelector('#multiply').addEventListener('click', onClickOperator('*'));   
-    document.querySelector('#calculate').addEventListener('click', onClickOperator('='));   
-    document.querySelector('#clear').addEventListener('click', () => {});   
+    document.querySelector('#divide').addEventListener('click', onClickOperator('/'));   
+    document.querySelector('#calculate').addEventListener('click', () => {
+        if (numTwo) {
+            switch (operator) {
+                case '+':
+                    $result.value = parseInt(numOne) + parseInt(numTwo);
+                    break;
+                case '-':
+                    $result.value = numOne - numTwo;
+                    break;
+                case '*':
+                    $result.value = numOne * numTwo;
+                    break;
+                case '/':
+                    $result.value = numOne / numTwo;
+                    break;
+                default:
+                    break;
+            }
+            numOne = $result.value
+            operator = '';
+            numTwo = '';
+        } else {
+            alert('숫자를 먼저 입력하세요.')
+        }
+    });   
+    document.querySelector('#clear').addEventListener('click', () => {
+        numOne = '';
+        operator = '';
+        numTwo = '';
+        $result.value = '';
+        $operator.value = '';
+    });   
 
 </script>
 </html>
