@@ -1,0 +1,55 @@
+{
+    "paths": [
+        {
+            "name": "/hello4",
+            "lambdaFunction": "greetingfunction4",
+            "privacy": {
+                "open": true
+            },
+            "policyResourceName": "/hello4"
+        },
+        {
+            "name": "/hello5",
+            "lambdaFunction": "greetingfunction5",
+            "privacy": {
+                "open": true
+            },
+            "policyResourceName": "/hello5"
+        }
+    ],
+    "resourceName": "nodeapi4",
+    "apiName": "nodeapi4",
+    "functionArns": [
+        {
+            "lambdaFunction": "greetingfunction4"
+        },
+        {
+            "lambdaFunction": "greetingfunction5"
+        }
+    ],
+    "privacy": {
+        "auth": 0,
+        "unauth": 0,
+        "authRoleName": "amplify-nodejs-dev-131751-authRole",
+        "unAuthRoleName": "amplify-nodejs-dev-131751-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "greetingfunction4",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        },
+        {
+            "category": "function",
+            "resourceName": "greetingfunction5",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ],
+    "uuid": "a5ba4286"
+}

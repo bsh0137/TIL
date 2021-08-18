@@ -1,0 +1,35 @@
+{
+  "paths": [
+    {
+      "name": "/hello3",
+      "lambdaFunction": "nodeapi3",
+      "privacy": {
+        "open": true
+      },
+      "policyResourceName": "/hello3"
+    }
+  ],
+  "resourceName": "nodeapi3",
+  "apiName": "nodeapi3",
+  "functionArns": [
+    {
+      "lambdaFunction": "nodeapi3"
+    }
+  ],
+  "privacy": {
+    "auth": 0,
+    "unauth": 0,
+    "authRoleName": "amplify-nodejs-dev-131751-authRole",
+    "unAuthRoleName": "amplify-nodejs-dev-131751-unauthRole"
+  },
+  "dependsOn": [
+    {
+      "category": "function",
+      "resourceName": "nodeapi3",
+      "attributes": [
+        "Name",
+        "Arn"
+      ]
+    }
+  ]
+}

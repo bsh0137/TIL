@@ -1,0 +1,69 @@
+PODS:
+  - Amplify (1.13.3):
+    - Amplify/Default (= 1.13.3)
+  - Amplify/Default (1.13.3)
+  - Amplify/Tools (1.13.3)
+  - AmplifyPlugins/AWSAPIPlugin (1.13.3):
+    - AppSyncRealTimeClient (~> 1.4)
+    - AWSCore (~> 2.24.0)
+    - AWSPluginsCore (= 1.13.3)
+  - AmplifyPlugins/AWSCognitoAuthPlugin (1.13.3):
+    - AWSAuthCore (~> 2.24.0)
+    - AWSCognitoIdentityProvider (~> 2.24.0)
+    - AWSCognitoIdentityProviderASF (~> 2.24.0)
+    - AWSCore (~> 2.24.0)
+    - AWSMobileClient (~> 2.24.0)
+    - AWSPluginsCore (= 1.13.3)
+  - AppSyncRealTimeClient (1.5.0):
+    - Starscream (~> 3.1.1)
+  - AWSAuthCore (2.24.5):
+    - AWSCore (= 2.24.5)
+  - AWSCognitoIdentityProvider (2.24.5):
+    - AWSCognitoIdentityProviderASF (= 2.24.5)
+    - AWSCore (= 2.24.5)
+  - AWSCognitoIdentityProviderASF (2.24.5)
+  - AWSCore (2.24.5)
+  - AWSMobileClient (2.24.5):
+    - AWSAuthCore (= 2.24.5)
+    - AWSCognitoIdentityProvider (= 2.24.5)
+    - AWSCognitoIdentityProviderASF (= 2.24.5)
+    - AWSCore (= 2.24.5)
+  - AWSPluginsCore (1.13.3):
+    - Amplify (= 1.13.3)
+    - AWSCore (~> 2.24.0)
+  - Starscream (3.1.1)
+
+DEPENDENCIES:
+  - Amplify
+  - Amplify/Tools
+  - AmplifyPlugins/AWSAPIPlugin
+  - AmplifyPlugins/AWSCognitoAuthPlugin
+
+SPEC REPOS:
+  trunk:
+    - Amplify
+    - AmplifyPlugins
+    - AppSyncRealTimeClient
+    - AWSAuthCore
+    - AWSCognitoIdentityProvider
+    - AWSCognitoIdentityProviderASF
+    - AWSCore
+    - AWSMobileClient
+    - AWSPluginsCore
+    - Starscream
+
+SPEC CHECKSUMS:
+  Amplify: 533d502d872cf91c09861720d59f5ec916cc1c33
+  AmplifyPlugins: 1b62bc69051dec11c8c9a44676090d4e390551f1
+  AppSyncRealTimeClient: 2b4482b1770a3e5cf64f9714a6d198550017b5a2
+  AWSAuthCore: 73f2e518d32f094b656fea905651bc3288ef05c0
+  AWSCognitoIdentityProvider: d32ff306a4d3aafcdc42ce40bd36e44d3f274201
+  AWSCognitoIdentityProviderASF: 1ccfe4092b617de54f203c1b728e7be6f49716c1
+  AWSCore: 2d4b06b24e2f882deec23567438195818b16a3f2
+  AWSMobileClient: 72e55c9c7162516feab354aa67f4d38dcecdcfc7
+  AWSPluginsCore: c347f9088e9b327d2e5e0a09fc7de4763e4ea9bc
+  Starscream: 4bb2f9942274833f7b4d296a55504dcfc7edb7b0
+
+PODFILE CHECKSUM: 847b3ee4a51d64ba0dd918f1f32b7b8593603542
+
+COCOAPODS: 1.10.2

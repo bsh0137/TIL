@@ -1,0 +1,35 @@
+{
+  "paths": [
+    {
+      "name": "/hello",
+      "lambdaFunction": "grettingfunction2",
+      "privacy": {
+        "open": true
+      },
+      "policyResourceName": "/hello"
+    }
+  ],
+  "resourceName": "nodeapi",
+  "apiName": "nodeapi",
+  "functionArns": [
+    {
+      "lambdaFunction": "grettingfunction2"
+    }
+  ],
+  "privacy": {
+    "auth": 0,
+    "unauth": 0,
+    "authRoleName": "amplify-nodejs-dev-131751-authRole",
+    "unAuthRoleName": "amplify-nodejs-dev-131751-unauthRole"
+  },
+  "dependsOn": [
+    {
+      "category": "function",
+      "resourceName": "grettingfunction2",
+      "attributes": [
+        "Name",
+        "Arn"
+      ]
+    }
+  ]
+}
