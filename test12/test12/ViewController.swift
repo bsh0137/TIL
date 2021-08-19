@@ -92,7 +92,7 @@ class ViewController: UIViewController {
                 print("reading Specific Data Success")
                 lbldata1.text = result?.title
             case .failure(let error):
-                print("Reading specific data failed!")
+                print("Reading specific data failed!") // dㅘ우
 //                print("Error on query() for type Post - \(error.localizedDescription)")
             }
         }
