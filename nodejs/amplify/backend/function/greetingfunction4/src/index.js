@@ -27,5 +27,5 @@ exports.handler = async (event) => {
             "Access-Control-Allow-Origin": "*",
         }
     };
-    return response;
+    return response;// sdf
   };
